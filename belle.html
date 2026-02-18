@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIZÉ Belle Éclat</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+background:#050505;
+font-family:Poppins;
+color:white;
+}
+
+/* ===== STICKY HEADER ===== */
+.header{
+position:sticky;
+top:0;
+z-index:999;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:22px 0;
+background:rgba(0,0,0,0.75);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.logo{
+font-family:'Playfair Display';
+font-size:30px;
+letter-spacing:6px;
+}
+.back{
+position:absolute;
+left:35px;
+text-decoration:none;
+color:#aaa;
+font-size:16px;
+}
+.back:hover{color:#d4af37}
+
+/* WRAPPER */
+.wrapper{
+max-width:1150px;
+margin:auto;
+padding:60px 20px 100px;
+}
+.top{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+.card{
+background:rgba(255,255,255,0.03);
+padding:35px;
+border-radius:26px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 40px rgba(212,175,55,0.05);
+}
+
+
+
+/* IMAGE */
+/* ===== PRODUCT IMAGE FIX ALL PAGE ===== */
+.image-box{
+height:520px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.image-box img{
+width:100%;
+max-width:380px;
+height:520px;
+object-fit:contain;
+transition:.4s;
+}
+
+/* hover luxury */
+.image-box img:hover{
+transform:scale(1.05);
+filter:drop-shadow(0 0 25px rgba(255,215,0,0.35));
+}
+
+
+
+@media(max-width:768px){
+.image-box{
+height:420px;
+}
+
+.image-box img{
+max-width:260px;
+height:420px;
+}
+}
+
+
+/* TITLE */
+h2{
+font-size:44px;
+font-family:'Playfair Display';
+margin-bottom:5px;
+}
+.subtitle{
+opacity:.6;
+margin-bottom:10px;
+}
+
+/* PRICE */
+.price-box{
+display:flex;
+align-items:center;
+gap:15px;
+margin:12px 0;
+}
+.old-price{
+text-decoration:line-through;
+color:#666;
+font-size:20px;
+}
+.new-price{
+color:#e6c76a;
+font-size:46px;
+font-weight:600;
+}
+
+/* BUTTON */
+/* ===== PERFECT CENTER PREMIUM BUTTON ===== */
+.buy{
+display:block;
+width:100%;
+text-align:center;
+background:linear-gradient(145deg,#151515,#0c0c0c);
+color:#fff;
+padding:18px 25px;
+border-radius:50px;
+font-weight:600;
+text-decoration:none;
+margin-top:22px;
+transition:.35s;
+border:1px solid rgba(255,255,255,0.08);
+letter-spacing:.5px;
+position:relative;
+overflow:hidden;
+
+/* REAL FIX */
+box-sizing:border-box;
+}
+
+/* inner glow */
+.buy::after{
+content:"";
+position:absolute;
+inset:0;
+border-radius:50px;
+box-shadow:inset 0 0 25px rgba(255,255,255,0.05);
+pointer-events:none;
+}
+
+/* shine sweep */
+.buy::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:120%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.25),transparent);
+transition:.6s;
+}
+
+.buy:hover::before{
+left:120%;
+}
+
+.buy:hover{
+transform:scale(1.03);
+border:1px solid rgba(255,255,255,0.25);
+box-shadow:0 0 35px rgba(255,255,255,0.08);
+}
+
+
+
+
+
+
+
+/* PERFORMANCE */
+.label{margin-top:16px;font-size:14px;opacity:.8}
+.bar{
+background:#1a1a1a;
+height:10px;
+border-radius:10px;
+overflow:hidden;
+}
+.fill{
+height:100%;
+border-radius:10px;
+position:relative;
+overflow:hidden;
+}
+.fill::after{
+content:"";
+position:absolute;
+top:0;
+left:-150%;
+width:200%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
+animation:shine 3s infinite;
+}
+@keyframes shine{
+0%{left:-150%}
+100%{left:150%}
+}
+/* ===== PERFORMANCE COLOR SYSTEM ===== */
+.high{
+width:80%;
+background:linear-gradient(90deg,#00ff9c,#00c97a);
+box-shadow:0 0 18px rgba(0,255,150,0.6);
+}
+
+.mid{
+width:60%;
+background:linear-gradient(90deg,#ffd54f,#ffb300);
+box-shadow:0 0 18px rgba(255,200,0,0.6);
+}
+
+.low{
+width:40%;
+background:linear-gradient(90deg,#ff5252,#ff1744);
+box-shadow:0 0 18px rgba(255,80,80,0.6);
+}
+
+
+/* ABOUT */
+.full{margin-top:35px}
+p{opacity:.9;line-height:1.8}
+
+/* ===== LUXURY NOTES ===== */
+.notes-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+border-radius:26px;
+overflow:hidden;
+background:#0a0a0a;
+margin-top:20px;
+}
+
+.note-item{
+position:relative;
+height:260px;
+overflow:hidden;
+}
+
+.note-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(.55);
+transition:.7s;
+}
+
+.note-item:hover img{
+transform:scale(1.08);
+filter:brightness(.75);
+}
+
+/* overlay */
+.note-layer{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:22px;
+background:linear-gradient(transparent, rgba(0,0,0,0.85));
+}
+
+.note-small{
+font-size:11px;
+letter-spacing:3px;
+opacity:.7;
+}
+
+.note-layer h4{
+margin:6px 0 4px;
+font-size:20px;
+}
+
+.note-layer p{
+font-size:13px;
+opacity:.75;
+line-height:1.5;
+margin:0;
+}
+
+/* divider */
+.note-item:not(:last-child){
+border-right:1px solid rgba(255,255,255,0.08);
+}
+
+/* hover glow */
+.note-item:hover{
+box-shadow:inset 0 -120px 120px rgba(212,175,55,0.08);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.top{grid-template-columns:1fr;}
+.notes-grid{
+grid-template-columns:1fr;
+}
+.note-item{
+height:200px;
+border-right:none;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:70px 0;
+opacity:.4;
+font-size:14px;
+margin-top:60px;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<a href="products.html" class="back">Back</a>
+<div class="logo">RIZÉ</div>
+</div>
+
+<div class="wrapper">
+
+<div class="top">
+
+<!-- IMAGE -->
+
+<div class="card image-box">
+<img src="belle.png">
+</div>
+
+<!-- INFO -->
+
+<div>
+<div class="card">
+<h2>Belle Éclat</h2>
+<div class="subtitle">Elegant feminine luxury scent</div>
+
+<div class="price-box">
+<span class="old-price">RM35</span>
+<span class="new-price">RM22</span>
+</div>
+
+<a href="https://wa.me/60198408022?text=Hi saya nak order RIZÉ Belle Éclat (RM22)" class="buy">
+Order via WhatsApp
+</a>
+</div>
+
+<div class="card" style="margin-top:25px;">
+<h3>Performance</h3>
+
+<div class="label">Sillage</div>
+<div class="bar"><div class="fill high"></div></div>
+
+<div class="label">Longevity (6–8 hours)</div>
+<div class="bar"><div class="fill mid"></div></div>
+
+<div class="label">Projection</div>
+<div class="bar"><div class="fill high"></div></div>
+
+</div>
+</div>
+
+</div>
+
+<!-- ABOUT -->
+
+<!-- ABOUT -->
+<div class="card full">
+<h3>About This Scent</h3>
+
+<p>
+Inspired by <b>Lancome La Vie Est Belle</b>, RIZÉ Belle Éclat delivers a soft luxurious feminine signature with balanced sweetness and elegance.
+</p>
+
+<p>
+This fragrance opens with a refined floral sweetness that feels premium and feminine without being overpowering. As it settles, creamy floral accords blend beautifully to create a confident and elegant aura.
+</p>
+
+<p>
+With approximately <b>46% perfume oil concentration</b>, Belle Éclat offers strong performance lasting <b>6–8 hours</b> on skin and longer on clothing.
+</p>
+
+<p>
+Perfect for daily wear, office, date nights and special occasions. A clean feminine signature designed for modern luxury presence.
+</p>
+
+</div>
+
+<!-- WHY PEOPLE BUY (PSYCHOLOGY) -->
+<div class="card full">
+<h3>Why people choose this scent</h3>
+
+<p>✨ Soft luxury feminine aura </p>
+<p>✨ High perfume oil (46%) </p>
+<p>✨ Long lasting 6–8 </p>
+<p>✨ Suitable daily wear, office & date</p>
+
+
+</div>
+
+<!-- FRAGRANCE NOTES PREMIUM -->
+<div class="card full">
+<h3>Fragrance Notes</h3>
+
+<div class="notes-grid">
+
+<!-- TOP -->
+<div class="note-item">
+<img src="top(belle).jpg">
+<div class="note-layer">
+<span class="note-small">TOP NOTE</span>
+<h4>Sweet Floral Opening</h4>
+<p>Bright elegant first spray. Soft feminine sweetness.</p>
+</div>
+</div>
+
+<!-- MID -->
+<div class="note-item">
+<img src="mid(belle).jpg">
+<div class="note-layer">
+<span class="note-small">MIDDLE NOTE</span>
+<h4>Creamy Floral Heart</h4>
+<p>Romantic smooth floral giving elegant aura.</p>
+</div>
+</div>
+
+<!-- BASE -->
+<div class="note-item">
+<img src="base(belle).jpg">
+<div class="note-layer">
+<span class="note-small">BASE NOTE</span>
+<h4>Vanilla Musk</h4>
+<p>Warm long lasting drydown. Soft luxury finish.</p>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<footer>
+© 2026 RIZÉ Fragrance. All rights reserved.
+</footer>
+
+
+</body>
+</html>

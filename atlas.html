@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIZÉ Atlas</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+background:#050505;
+font-family:Poppins;
+color:white;
+}
+
+/* HEADER */
+.header{
+position:sticky;
+top:0;
+z-index:999;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:22px 0;
+background:rgba(0,0,0,0.75);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.logo{
+font-family:'Playfair Display';
+font-size:30px;
+letter-spacing:6px;
+}
+.back{
+position:absolute;
+left:35px;
+text-decoration:none;
+color:#aaa;
+font-size:16px;
+}
+.back:hover{color:#d4af37}
+
+/* WRAPPER */
+.wrapper{
+max-width:1150px;
+margin:auto;
+padding:60px 20px 100px;
+}
+
+.top{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.card{
+background:rgba(255,255,255,0.03);
+padding:35px;
+border-radius:26px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 40px rgba(212,175,55,0.05);
+}
+
+/* IMAGE */
+/* ===== PRODUCT IMAGE FIX ALL PAGE ===== */
+.image-box{
+height:520px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.image-box img{
+width:100%;
+max-width:380px;
+height:520px;
+object-fit:contain;
+transition:.4s;
+}
+
+/* hover luxury */
+.image-box img:hover{
+transform:scale(1.05);
+filter:drop-shadow(0 0 25px rgba(255,215,0,0.35));
+}
+
+
+@media(max-width:768px){
+.image-box{
+height:420px;
+}
+
+.image-box img{
+max-width:260px;
+height:420px;
+}
+}
+
+
+/* TITLE */
+h2{
+font-size:44px;
+font-family:'Playfair Display';
+margin-bottom:5px;
+}
+.subtitle{
+opacity:.6;
+margin-bottom:10px;
+}
+
+/* PRICE */
+.price-box{
+display:flex;
+align-items:center;
+gap:15px;
+margin:12px 0;
+}
+.old-price{
+text-decoration:line-through;
+color:#666;
+font-size:20px;
+}
+.new-price{
+color:#e6c76a;
+font-size:46px;
+font-weight:600;
+}
+
+/* UNIVERSAL PREMIUM BUTTON */
+.buy{
+display:block;
+width:100%;
+text-align:center;
+background:linear-gradient(145deg,#151515,#0c0c0c);
+color:#fff;
+padding:18px 25px;
+border-radius:50px;
+font-weight:600;
+text-decoration:none;
+margin-top:22px;
+transition:.35s;
+border:1px solid rgba(255,255,255,0.08);
+letter-spacing:.5px;
+position:relative;
+overflow:hidden;
+box-sizing:border-box;
+}
+
+.buy::after{
+content:"";
+position:absolute;
+inset:0;
+border-radius:50px;
+box-shadow:inset 0 0 25px rgba(255,255,255,0.05);
+pointer-events:none;
+}
+
+.buy::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:120%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.25),transparent);
+transition:.6s;
+}
+
+.buy:hover::before{left:120%}
+
+.buy:hover{
+transform:scale(1.03);
+border:1px solid rgba(255,255,255,0.25);
+box-shadow:0 0 35px rgba(255,255,255,0.08);
+}
+
+/* PERFORMANCE */
+.label{margin-top:16px;font-size:14px;opacity:.8}
+.bar{
+background:#1a1a1a;
+height:10px;
+border-radius:10px;
+overflow:hidden;
+}
+.fill{
+height:100%;
+border-radius:10px;
+position:relative;
+overflow:hidden;
+}
+.fill::after{
+content:"";
+position:absolute;
+top:0;
+left:-150%;
+width:200%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);
+animation:shine 3s infinite;
+}
+@keyframes shine{
+0%{left:-150%}
+100%{left:150%}
+}
+
+.high{
+width:90%;
+background:linear-gradient(90deg,#00ff9c,#00c97a);
+box-shadow:0 0 18px rgba(0,255,150,0.6);
+}
+.mid{
+width:75%;
+background:linear-gradient(90deg,#ffd54f,#ffb300);
+box-shadow:0 0 18px rgba(255,200,0,0.6);
+}
+
+/* ABOUT */
+.full{margin-top:35px}
+p{opacity:.9;line-height:1.8}
+
+/* NOTES GRID */
+.notes-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+border-radius:26px;
+overflow:hidden;
+background:#0a0a0a;
+margin-top:20px;
+}
+
+.note-item{
+position:relative;
+height:260px;
+overflow:hidden;
+}
+
+.note-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(.55);
+transition:.7s;
+}
+
+.note-item:hover img{
+transform:scale(1.08);
+filter:brightness(.75);
+}
+
+.note-layer{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:22px;
+background:linear-gradient(transparent, rgba(0,0,0,0.85));
+}
+
+.note-small{
+font-size:11px;
+letter-spacing:3px;
+opacity:.7;
+}
+
+.note-layer h4{
+margin:6px 0 4px;
+font-size:20px;
+}
+
+.note-layer p{
+font-size:13px;
+opacity:.75;
+line-height:1.5;
+margin:0;
+}
+
+.note-item:not(:last-child){
+border-right:1px solid rgba(255,255,255,0.08);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.top{grid-template-columns:1fr;}
+.notes-grid{grid-template-columns:1fr;}
+.note-item{
+height:200px;
+border-right:none;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:70px 0;
+opacity:.4;
+font-size:14px;
+margin-top:60px;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<a href="products.html" class="back">Back</a>
+<div class="logo">RIZÉ</div>
+</div>
+
+<div class="wrapper">
+
+<div class="top">
+
+<div class="card image-box">
+<img src="altas.png">
+</div>
+
+<div>
+<div class="card">
+<h2>Atlas</h2>
+<div class="subtitle">Masculine caramel sweet premium scent</div>
+
+<div class="price-box">
+<span class="old-price">RM39</span>
+<span class="new-price">RM25</span>
+</div>
+
+<a href="https://wa.me/60198408022?text=Hi saya nak order RIZÉ Atlas (RM25)" class="buy">
+Order via WhatsApp
+</a>
+</div>
+
+<div class="card" style="margin-top:25px;">
+<h3>Performance</h3>
+
+<div class="label">Sillage</div>
+<div class="bar"><div class="fill high"></div></div>
+
+<div class="label">Longevity (8–14 hours)</div>
+<div class="bar"><div class="fill high"></div></div>
+
+<div class="label">Projection</div>
+<div class="bar"><div class="fill mid"></div></div>
+
+</div>
+</div>
+
+</div>
+
+<!-- ABOUT -->
+<div class="card full">
+<h3>About This Scent</h3>
+
+<p>
+RIZÉ Atlas delivers a bold masculine presence balanced with smooth caramel sweetness.
+</p>
+
+<p>
+The opening gives a strong confident masculine vibe before revealing a warm caramel sweetness that feels rich and addictive.
+</p>
+
+<p>
+As it settles, Atlas develops into a smooth woody-sweet drydown creating a premium masculine aura that feels powerful yet refined.
+</p>
+
+<p>
+With approximately <b>8–14 hours longevity</b>, Atlas is one of the strongest performers in the RIZÉ collection — noticeable on skin and long lasting on clothing.
+</p>
+
+<p>
+Perfect for night wear, dates, events and men who want a confident luxury signature scent.
+</p>
+
+</div>
+
+<!-- WHY BUY -->
+<div class="card full">
+<h3>Why people choose Atlas</h3>
+
+<p>🔥 Masculine + caramel sweet combo</p>
+<p>🔥 Strong long lasting 8–14 hours</p>
+<p>🔥 Premium bold masculine aura</p>
+<p>🔥 Perfect for night & special occasions</p>
+<p>🔥 One of strongest projection in collection</p>
+</div>
+
+<!-- NOTES -->
+<div class="card full">
+<h3>Fragrance Notes</h3>
+
+<div class="notes-grid">
+
+<div class="note-item">
+<img src="top(atlas).jpg">
+<div class="note-layer">
+<span class="note-small">TOP NOTE</span>
+<h4>Fresh Spicy Opening</h4>
+<p>Bold masculine first spray. Confident and sharp.</p>
+</div>
+</div>
+
+<div class="note-item">
+<img src="mid(atlas).jpg">
+<div class="note-layer">
+<span class="note-small">MIDDLE NOTE</span>
+<h4>Caramel Sweet</h4>
+<p>Smooth warm caramel. Addictive masculine sweetness.</p>
+</div>
+</div>
+
+<div class="note-item">
+<img src="base(atlas).jpg">
+<div class="note-layer">
+<span class="note-small">BASE NOTE</span>
+<h4>Woody Musk</h4>
+<p>Deep woody drydown. Long lasting masculine aura.</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<footer>
+© 2026 RIZÉ Fragrance. All rights reserved.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIZÉ Fragrance</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body{
+background:#050505;
+color:white;
+font-family:Poppins;
+margin:0;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+position:fixed;
+width:100%;
+background:rgba(0,0,0,0.55);
+backdrop-filter:blur(16px);
+padding:22px 0;
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.navbar-brand{
+font-family:'Playfair Display';
+font-size:32px;
+letter-spacing:5px;
+}
+.nav-link{
+color:#ddd !important;
+margin-left:35px;
+transition:.3s;
+}
+.nav-link:hover{color:gold !important;}
+
+/* HERO */
+.hero{
+height:100vh;
+background:url("hero.jpg") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+.overlay{
+background:rgba(0,0,0,0.65);
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+}
+
+.hero h1{
+font-family:'Playfair Display';
+font-size:90px;
+letter-spacing:7px;
+}
+
+.btn-gold{
+background:linear-gradient(45deg,#e6c200,#ffd700);
+border:none;
+padding:15px 45px;
+border-radius:40px;
+font-weight:600;
+transition:.4s;
+}
+.btn-gold:hover{
+transform:scale(1.08);
+box-shadow:0 0 40px gold;
+}
+
+/* COLLECTION */
+.collection{
+padding:140px 0 110px;
+text-align:center;
+}
+
+.collection h2{
+font-family:Playfair Display;
+font-size:48px;
+letter-spacing:4px;
+margin-bottom:10px;
+}
+
+.collection p{
+opacity:0.55;
+margin-bottom:70px;
+}
+
+/* PERFUME */
+.perfume-img{
+width:260px;
+height:380px;
+object-fit:contain;
+margin:auto;
+display:block;
+transition:.4s;
+}
+
+/* hover premium smooth */
+.carousel-item:hover .perfume-img{
+transform:scale(1.06);
+filter:drop-shadow(0 0 25px gold);
+}
+
+
+/* LOCATION */
+.location{
+padding:130px 0;
+text-align:center;
+background:#000;
+}
+
+.map-box iframe{
+width:75%;
+height:350px;
+border:0;
+border-radius:22px;
+display:block;
+margin:50px auto;
+box-shadow:0 30px 80px rgba(0,0,0,0.9);
+}
+
+/* FOOTER */
+footer{
+background:#000;
+padding:80px 0;
+text-align:center;
+margin-top:120px;
+font-size:14px;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.tiktok-icon{
+width:28px;
+margin-top:18px;
+filter:brightness(0) invert(1);
+transition:.3s;
+}
+.tiktok-icon:hover{
+transform:scale(1.25);
+filter:brightness(0) invert(1) drop-shadow(0 0 10px white);
+}
+
+/* FLOAT ASSISTANT */
+.assistant-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+width:65px;
+height:65px;
+background:#111;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 18px rgba(255,255,255,0.2);
+cursor:pointer;
+z-index:999;
+transition:.4s;
+}
+
+.assistant-btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 35px gold;
+}
+
+.assistant-btn img{
+width:38px;
+}
+
+/* POPUP */
+.chat-popup{
+position:fixed;
+bottom:110px;
+right:25px;
+width:320px;
+background:#0b0b0b;
+border-radius:20px;
+padding:20px;
+box-shadow:0 0 40px rgba(0,0,0,0.8);
+display:none;
+z-index:999;
+}
+
+.chat-popup h4{
+font-family:Playfair Display;
+}
+
+.chat-popup button{
+width:100%;
+margin-top:10px;
+padding:10px;
+border:none;
+border-radius:10px;
+background:gold;
+font-weight:600;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-dark navbar-expand-lg">
+<div class="container-fluid px-5">
+<a class="navbar-brand">RIZÉ</a>
+
+<div class="collapse navbar-collapse justify-content-end">
+<ul class="navbar-nav">
+<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="products.html">Our Product</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+<div class="overlay">
+<h1>RIZÉ</h1>
+<p>Luxury in Every Drop</p>
+<a href="products.html" class="btn btn-gold mt-4">Shop Now</a>
+</div>
+</section>
+
+<!-- COLLECTION -->
+
+<section class="collection">
+<h2>Our Signature Collection</h2>
+<p>High concentration perfume oil crafted for long lasting presence</p>
+
+<div id="slider" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner">
+
+<div class="carousel-item active text-center">
+<a href="atlas.html"><img src="atlas.png" class="perfume-img"></a>
+<div class="perfume-title">RIZÉ Atlas</div>
+<div class="perfume-sub">Bold masculine signature</div>
+</div>
+
+<div class="carousel-item text-center">
+<a href="belle.html"><img src="belle.png" class="perfume-img"></a>
+<div class="perfume-title">RIZÉ Belle Éclat</div>
+<div class="perfume-sub">Elegant feminine luxury</div>
+</div>
+
+<div class="carousel-item text-center">
+<a href="lumina.html"><img src="lumina.png" class="perfume-img"></a>
+<div class="perfume-title">RIZÉ Lumina</div>
+<div class="perfume-sub">Sweet long lasting scent</div>
+</div>
+
+<div class="carousel-item text-center">
+<a href="skyveil.html"><img src="skyveil.png" class="perfume-img"></a>
+<div class="perfume-title">RIZÉ Skyveil</div>
+<div class="perfume-sub">Soft airy feminine</div>
+</div>
+
+<div class="carousel-item text-center">
+<a href="pear.html"><img src="pear.png" class="perfume-img"></a>
+<div class="perfume-title">RIZÉ Pear Blossom</div>
+<div class="perfume-sub">Fresh clean scent</div>
+</div>
+
+</div>
+
+<button class="carousel-control-prev" data-bs-target="#slider" data-bs-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</button>
+
+<button class="carousel-control-next" data-bs-target="#slider" data-bs-slide="next">
+<span class="carousel-control-next-icon"></span>
+</button>
+</div>
+</section>
+
+<!-- LOCATION -->
+
+<section class="location">
+<h2 style="font-family:Playfair Display;">Our Studio</h2>
+<p style="opacity:.6;">Sabak Bernam, Selangor</p>
+
+<div class="map-box">
+<iframe src="https://www.google.com/maps?q=3.6756,100.9869&output=embed"></iframe>
+</div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+<p>Follow us</p>
+<a href="https://www.tiktok.com/@rizefragrance">
+<img class="tiktok-icon" src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+</a>
+
+<p style="margin-top:25px; opacity:.6;">
+© 2026 RIZÉ Fragrance. All rights reserved.
+</p>
+</footer>
+
+<!-- ===== RARA FLOAT BUTTON ===== -->
+<div class="rara-float" onclick="toggleRara()">
+<img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png">
+</div>
+
+<!-- ===== RARA CHAT ===== -->
+<div class="rara-box" id="raraBox">
+
+<div class="rara-header">
+<div class="rara-title">RARA Assistant</div>
+<div class="rara-close" onclick="toggleRara()">✕</div>
+</div>
+
+<div class="rara-body" id="chatArea">
+
+<div class="rara-bubble">
+Please select language<br>
+<span style="opacity:.6;font-size:13px">Sila pilih bahasa</span>
+</div>
+
+<div class="rara-menu">
+<button onclick="startEN()">English</button>
+<button onclick="startBM()">Bahasa Melayu</button>
+</div>
+
+</div>
+</div>
+
+<style>
+.rara-float{
+position:fixed;
+bottom:24px;
+right:24px;
+width:62px;
+height:62px;
+background:linear-gradient(145deg,#0c0c0c,#1a1a1a);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 18px rgba(0,0,0,0.9);
+cursor:pointer;
+z-index:9999;
+transition:box-shadow .3s, transform .2s;
+}
+
+/* smooth hover no shaking */
+.rara-float:hover{
+transform:scale(1.06);
+box-shadow:0 0 28px gold;
+}
+
+.rara-float img{
+width:34px;
+filter:invert(1);
+}
+
+.rara-box{
+position:fixed;
+bottom:100px;
+right:24px;
+width:360px;
+background:rgba(8,8,8,0.96);
+backdrop-filter:blur(18px);
+border-radius:22px;
+box-shadow:0 30px 90px rgba(0,0,0,0.9),
+0 0 40px rgba(255,215,0,0.08);
+display:none;
+z-index:9999;
+overflow:hidden;
+animation:fadeUp .35s ease;
+font-family:Poppins;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+.rara-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 20px;
+border-bottom:1px solid rgba(255,255,255,0.06);
+background:linear-gradient(to bottom,rgba(255,255,255,0.02),transparent);
+}
+
+.rara-title{
+font-weight:600;
+letter-spacing:.5px;
+}
+
+.rara-close{
+width:34px;
+height:34px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:#111;
+cursor:pointer;
+transition:.25s;
+font-size:14px;
+}
+.rara-close:hover{
+background:#1c1c1c;
+color:gold;
+}
+
+.rara-body{
+padding:18px;
+max-height:480px;
+overflow:auto;
+}
+
+.rara-bubble{
+background:#151515;
+padding:14px 16px;
+border-radius:14px;
+margin-bottom:14px;
+font-size:14px;
+}
+
+.rara-menu button{
+width:100%;
+margin-bottom:10px;
+padding:13px;
+border:none;
+border-radius:14px;
+background:#0f0f0f;
+color:white;
+border:1px solid rgba(255,255,255,0.08);
+font-size:14px;
+transition:.25s;
+}
+
+.rara-menu button:hover{
+background:linear-gradient(45deg,#ffd700,#ffb300);
+color:black;
+border:none;
+}
+
+@media(max-width:768px){
+.rara-box{
+width:92%;
+right:4%;
+}
+}
+</style>
+
+<script>
+function toggleRara(){
+let box=document.getElementById("raraBox");
+box.style.display = box.style.display==="block" ? "none":"block";
+}
+
+/* START */
+function startEN(){menuEN();}
+function startBM(){menuBM();}
+
+/* EN */
+function menuEN(){
+document.getElementById("chatArea").innerHTML=`
+<div class="rara-bubble">Hi, how can we assist you today?</div>
+
+<div class="rara-menu">
+<button onclick="toggleInfo(event,'longevityEN')">Perfume longevity</button>
+<button onclick="toggleInfo(event,'recommendEN')">Perfume recommendation</button>
+<button onclick="toggleInfo(event,'deliveryEN')">Postage & delivery</button>
+<button onclick="toggleInfo(event,'onlineEN')">Order online</button>
+<button onclick="openFeedback()">Feedback / Issue</button>
+<button onclick="whatsapp()">Order via WhatsApp</button>
+<button onclick="backLang()">Change language</button>
+</div>
+`;
+}
+
+/* BM */
+function menuBM(){
+document.getElementById("chatArea").innerHTML=`
+<div class="rara-bubble">Hai, bagaimana kami boleh bantu?</div>
+
+<div class="rara-menu">
+<button onclick="toggleInfo(event,'longevityBM')">Ketahanan perfume</button>
+<button onclick="toggleInfo(event,'recommendBM')">Cadangan perfume</button>
+<button onclick="toggleInfo(event,'deliveryBM')">Postage & delivery</button>
+<button onclick="toggleInfo(event,'onlineBM')">Order online</button>
+<button onclick="openFeedback()">Feedback / Masalah</button>
+<button onclick="whatsapp()">Order WhatsApp</button>
+<button onclick="backLang()">Tukar bahasa</button>
+</div>
+`;
+}
+
+/* TOGGLE INFO UNDER BUTTON */
+function toggleInfo(e,type){
+let btn=e.target;
+
+/* remove existing */
+if(btn.classList.contains("activeInfo")){
+removeInfos();
+btn.classList.remove("activeInfo");
+return;
+}
+removeInfos();
+
+btn.classList.add("activeInfo");
+
+let info=document.createElement("div");
+info.className="rara-bubble";
+info.style.marginTop="8px";
+
+let text="";
+
+/* EN */
+if(type==="longevityEN")
+text="Atlas: 8-14 hours<br>Belle: 6–8 hours<br>Lumina: 8–12 hours<br>Pear & Skyveil: 3–7 hours";
+
+if(type==="recommendEN")
+text="Atlas – bold masculine<br>Belle – elegant feminine<br>Lumina – sweet long lasting<br>Pear – fresh clean<br>Skyveil – soft airy";
+
+if(type==="deliveryEN")
+text="Postage (Peninsular): RM7<br>Free COD: poly gate<br>Door COD: +RM2";
+
+if(type==="onlineEN")
+text="Online ordering system currently under development.<br>Please order via WhatsApp for faster response.";
+
+/* BM */
+if(type==="longevityBM")
+text="Atlas: 8+ jam<br>Belle: 6–8 jam<br>Lumina: 8–12 jam<br>Pear & Skyveil: 3–4 jam";
+
+if(type==="recommendBM")
+text="Atlas – maskulin bold<br>Belle – feminine elegan<br>Lumina – manis tahan lama<br>Pear – fresh clean<br>Skyveil – soft feminine";
+
+if(type==="deliveryBM")
+text="Postage (Semenanjung): RM7<br>COD percuma: gate poli<br>COD pintu: +RM2";
+
+if(type==="onlineBM")
+text="Sistem order website sedang dibangunkan.<br>Buat masa ini order melalui WhatsApp.";
+
+info.innerHTML=text;
+
+btn.insertAdjacentElement("afterend",info);
+}
+
+function removeInfos(){
+document.querySelectorAll(".rara-bubble").forEach((el,i)=>{
+if(i!==0) el.remove();
+});
+document.querySelectorAll(".activeInfo").forEach(b=>b.classList.remove("activeInfo"));
+}
+
+function backLang(){
+location.reload();
+}
+
+function whatsapp(){
+window.open("https://wa.me/60198408022","_blank");
+}
+
+/* FEEDBACK */
+function openFeedback(){
+document.getElementById("chatArea").innerHTML=`
+<div class="rara-bubble"><b>Send feedback</b></div>
+
+<form action="https://formspree.io/f/mqedbdvy" method="POST">
+<input name="name" placeholder="Name" required style="width:100%;margin-bottom:8px;padding:12px;border-radius:10px;border:none;">
+<input name="email" type="email" placeholder="Email" required style="width:100%;margin-bottom:8px;padding:12px;border-radius:10px;border:none;">
+<textarea name="message" placeholder="Message..." required style="width:100%;margin-bottom:8px;padding:12px;border-radius:10px;border:none;height:90px;"></textarea>
+
+<button type="submit" style="width:100%;padding:12px;background:gold;border:none;border-radius:12px;font-weight:600;">
+Send
+</button>
+</form>
+
+<br>
+<button onclick="backLang()" style="width:100%;padding:10px;background:#111;color:white;border:1px solid #333;border-radius:12px;">
+Back
+</button>
+`;
+}
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
