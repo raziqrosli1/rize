@@ -77,6 +77,7 @@ width:100%;
 max-width:380px;
 height:520px;
 object-fit:contain;
+border-radius: 30px;
 transition:.4s;
 }
 
@@ -202,7 +203,11 @@ box-shadow:0 0 18px rgba(255,80,80,0.6);
 .full{margin-top:35px}
 p{opacity:.9;line-height:1.8}
 
-/* ===== NOTES GRID ===== */
+/* ABOUT */
+.full{margin-top:35px}
+p{opacity:.9;line-height:1.8}
+
+/* ===== LUXURY NOTES ===== */
 .notes-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -211,11 +216,13 @@ overflow:hidden;
 background:#0a0a0a;
 margin-top:20px;
 }
+
 .note-item{
 position:relative;
 height:260px;
 overflow:hidden;
 }
+
 .note-item img{
 width:100%;
 height:100%;
@@ -223,10 +230,13 @@ object-fit:cover;
 filter:brightness(.55);
 transition:.7s;
 }
+
 .note-item:hover img{
 transform:scale(1.08);
 filter:brightness(.75);
 }
+
+/* overlay */
 .note-layer{
 position:absolute;
 bottom:0;
@@ -235,29 +245,41 @@ width:100%;
 padding:22px;
 background:linear-gradient(transparent, rgba(0,0,0,0.85));
 }
+
 .note-small{
 font-size:11px;
 letter-spacing:3px;
 opacity:.7;
 }
+
 .note-layer h4{
 margin:6px 0 4px;
 font-size:20px;
 }
+
 .note-layer p{
 font-size:13px;
 opacity:.75;
 line-height:1.5;
 margin:0;
 }
+
+/* divider */
 .note-item:not(:last-child){
 border-right:1px solid rgba(255,255,255,0.08);
+}
+
+/* hover glow */
+.note-item:hover{
+box-shadow:inset 0 -120px 120px rgba(212,175,55,0.08);
 }
 
 /* MOBILE */
 @media(max-width:768px){
 .top{grid-template-columns:1fr;}
-.notes-grid{grid-template-columns:1fr;}
+.notes-grid{
+grid-template-columns:1fr;
+}
 .note-item{
 height:200px;
 border-right:none;
@@ -289,7 +311,7 @@ border-top:1px solid rgba(255,255,255,0.05);
 <div class="top">
 
 <div class="card image-box">
-<img src="pear.png">
+<img src="pe.png">
 </div>
 
 <div>
@@ -340,20 +362,18 @@ The opening starts with juicy pear freshness that feels bright and uplifting. As
 With an estimated <b>3–7 hours longevity</b>, this scent focuses on a clean personal aura rather than heavy projection. It stays noticeable in close range, perfect for those who prefer soft and comforting fragrances.
 </p>
 
-<p>
-Ideal for campus, daily wear, hot weather and anyone who loves fresh clean girl vibes.
-</p>
+
 </div>
 
 <!-- WHY PEOPLE BUY -->
 <div class="card full">
 <h3>Why people choose this scent</h3>
 
-<p>✨ Fresh clean feminine vibe</p>
-<p>✨ Soft non-overpowering daily scent</p>
-<p>✨ Comfortable for hot weather</p>
-<p>✨ Clean girl aesthetic</p>
-<p>✨ Perfect campus & daily wear</p>
+<p> Fresh clean feminine vibe</p>
+<p> Soft non-overpowering daily scent</p>
+<p> Comfortable for hot weather</p>
+<p> Perfect campus & daily wear</p>
+<p> 46% perfume oil concentration </p>
 
 </div>
 
@@ -401,3 +421,4 @@ Ideal for campus, daily wear, hot weather and anyone who loves fresh clean girl 
 
 </body>
 </html>
+
