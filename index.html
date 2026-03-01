@@ -45,26 +45,47 @@ transition:.3s;
 height:100vh;
 background:url("hero.jpg") center/cover no-repeat;
 display:flex;
-align-items:center;
+align-items:flex-end; /* turun bawah */
 justify-content:center;
-text-align:center;
 position:relative;
 }
 
 .overlay{
-background:rgba(0,0,0,0.65);
+background:linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.5), transparent);
 width:100%;
 height:100%;
 display:flex;
 align-items:center;
-justify-content:center;
+justify-content:flex-end;
 flex-direction:column;
+padding-bottom:140px; /* turun bawah sikit */
+text-align:center;
 }
 
 .hero h1{
 font-family:'Playfair Display';
 font-size:90px;
 letter-spacing:7px;
+}
+
+.hero-tagline{
+font-family:'Playfair Display';
+font-size:34px;
+letter-spacing:2px;
+margin-bottom:10px;
+}
+
+.hero-sub{
+font-size:14px;
+letter-spacing:3px;
+text-transform:uppercase;
+opacity:.6;
+margin-bottom:35px;
+}
+
+
+.btn-gold{
+margin-top:10px;
 }
 
 .btn-gold{
@@ -207,6 +228,17 @@ border-radius:10px;
 background:gold;
 font-weight:600;
 }
+
+.perfume-title{
+margin-top:30px;
+font-size:26px;
+font-family:'Playfair Display', serif;
+letter-spacing:1px;
+}
+
+.overlay{
+background:linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.85));
+}
 </style>
 
 </head>
@@ -218,6 +250,8 @@ font-weight:600;
 <nav class="navbar navbar-dark navbar-expand-lg">
 <div class="container-fluid px-5">
 <a class="navbar-brand">RIZÉ</a>
+
+
 
 <div class="collapse navbar-collapse justify-content-end">
 <ul class="navbar-nav">
@@ -232,8 +266,15 @@ font-weight:600;
 
 <section class="hero" id="home">
 <div class="overlay">
-<h1>RIZÉ</h1>
-<p>Luxury in Every Drop</p>
+<h2 class="hero-tagline">
+Extrait de Parfum Collection
+</h2>
+
+<p class="hero-sub">
+Crafted for presence
+</p>
+
+
 <a href="products.html" class="btn btn-gold mt-4">Shop Now</a>
 </div>
 </section>
@@ -248,7 +289,7 @@ font-weight:600;
 <div class="carousel-inner">
 
 <div class="carousel-item active text-center">
-<a href="atlas.html"><img src="atlas.png" class="perfume-img"></a>
+<a href="atlas.html"><img src="at.png" class="perfume-img"></a>
 <div class="perfume-title">RIZÉ Atlas</div>
 <div class="perfume-sub">Bold masculine signature</div>
 </div>
@@ -260,19 +301,19 @@ font-weight:600;
 </div>
 
 <div class="carousel-item text-center">
-<a href="lumina.html"><img src="lumina.png" class="perfume-img"></a>
+<a href="lumina.html"><img src="lu.png" class="perfume-img"></a>
 <div class="perfume-title">RIZÉ Lumina</div>
 <div class="perfume-sub">Sweet long lasting scent</div>
 </div>
 
 <div class="carousel-item text-center">
-<a href="skyveil.html"><img src="skyveil.png" class="perfume-img"></a>
+<a href="skyveil.html"><img src="sky.png" class="perfume-img"></a>
 <div class="perfume-title">RIZÉ Skyveil</div>
 <div class="perfume-sub">Soft airy feminine</div>
 </div>
 
 <div class="carousel-item text-center">
-<a href="pear.html"><img src="pear.png" class="perfume-img"></a>
+<a href="pear.html"><img src="pe.png" class="perfume-img"></a>
 <div class="perfume-title">RIZÉ Pear Blossom</div>
 <div class="perfume-sub">Fresh clean scent</div>
 </div>
@@ -456,6 +497,8 @@ color:black;
 border:none;
 }
 
+
+
 @media(max-width:768px){
 .rara-box{
 width:92%;
@@ -471,10 +514,10 @@ box.style.display = box.style.display==="block" ? "none":"block";
 }
 
 /* START */
-function startEN(){menuEN();}
-function startBM(){menuBM();}
+function startEN(){ menuEN(); }
+function startBM(){ menuBM(); }
 
-/* EN */
+/* EN MENU */
 function menuEN(){
 document.getElementById("chatArea").innerHTML=`
 <div class="rara-bubble">Hi, how can we assist you today?</div>
@@ -491,7 +534,7 @@ document.getElementById("chatArea").innerHTML=`
 `;
 }
 
-/* BM */
+/* BM MENU */
 function menuBM(){
 document.getElementById("chatArea").innerHTML=`
 <div class="rara-bubble">Hai, bagaimana kami boleh bantu?</div>
@@ -508,61 +551,73 @@ document.getElementById("chatArea").innerHTML=`
 `;
 }
 
-/* TOGGLE INFO UNDER BUTTON */
+/* TOGGLE INFO */
 function toggleInfo(e,type){
 let btn=e.target;
 
-/* remove existing */
+/* close if already open */
 if(btn.classList.contains("activeInfo")){
 removeInfos();
 btn.classList.remove("activeInfo");
 return;
 }
-removeInfos();
 
+removeInfos();
 btn.classList.add("activeInfo");
 
 let info=document.createElement("div");
-info.className="rara-bubble";
+info.className="rara-bubble info";
 info.style.marginTop="8px";
 
 let text="";
 
+switch(type){
+
 /* EN */
-if(type==="longevityEN")
-text="Atlas: 8-14 hours<br>Belle: 6–8 hours<br>Lumina: 8–12 hours<br>Pear & Skyveil: 3–7 hours";
+case "longevityEN":
+text="Longevity may vary depending on skin type, weather and application.<br><br>Atlas: 8–14 hours<br>Belle: 6–8 hours<br>Lumina: 8–12 hours<br>Pear & Skyveil: 3–6 hours (lighter fresh compositions)";
+break;
 
-if(type==="recommendEN")
-text="Atlas – bold masculine<br>Belle – elegant feminine<br>Lumina – sweet long lasting<br>Pear – fresh clean<br>Skyveil – soft airy";
+case "recommendEN":
+text="Atlas — Bold masculine presence with smooth caramel sweetness.<br><br>Belle — Refined feminine elegance with a soft floral aura.<br><br>Lumina — Warm sweet signature scent with lasting depth.<br><br>Pear — Fresh, clean and effortlessly light.<br><br>Skyveil — Soft airy femininity with a calming touch.";
+break;
 
-if(type==="deliveryEN")
-text="Postage (Peninsular): RM7<br>Free COD: poly gate<br>Door COD: +RM2";
+case "deliveryEN":
+text="Postage (Peninsular Malaysia): RM7<br>Free COD: Polytechnic gate / Cafe Admin<br>Door to door COD(Polytechnic): +RM2";
+break;
 
-if(type==="onlineEN")
-text="Online ordering system currently under development.<br>Please order via WhatsApp for faster response.";
+case "onlineEN":
+text="Our online ordering system is currently under development.<br><br>Please proceed via WhatsApp for immediate assistance.";
+break;
 
 /* BM */
-if(type==="longevityBM")
-text="Atlas: 8+ jam<br>Belle: 6–8 jam<br>Lumina: 8–12 jam<br>Pear & Skyveil: 3–4 jam";
+case "longevityBM":
+text="Ketahanan perfume bergantung pada jenis kulit, cuaca dan jumlah semburan.<br><br>Atlas: 8–14 jam<br>Belle: 6–8 jam<br>Lumina: 8–12 jam<br>Pear & Skyveil: 3–6 jam (lebih ringan dan segar)";
+break;
 
-if(type==="recommendBM")
-text="Atlas – maskulin bold<br>Belle – feminine elegan<br>Lumina – manis tahan lama<br>Pear – fresh clean<br>Skyveil – soft feminine";
+case "recommendBM":
+text="Atlas — Maskulin berkarisma dengan sentuhan manis caramel.<br><br>Belle — Feminin elegan dengan aura lembut dan mempesona.<br><br>Lumina — Manis dan warm dengan ketahanan yang memikat.<br><br>Pear — Fresh dan clean untuk kegunaan harian.<br><br>Skyveil — Soft feminin yang ringan dan menenangkan.";
+break;
 
-if(type==="deliveryBM")
-text="Postage (Semenanjung): RM7<br>COD percuma: gate poli<br>COD pintu: +RM2";
+case "deliveryBM":
+text="Pos (Semenanjung Malaysia): RM7<br>COD percuma: Gate Politeknik / Cafe Admin<br>COD pintu ke pintu(Politeknik): +RM2";
+break;
 
-if(type==="onlineBM")
-text="Sistem order website sedang dibangunkan.<br>Buat masa ini order melalui WhatsApp.";
+case "onlineBM":
+text="Sistem pesanan atas talian sedang dalam pembangunan.<br><br>Buat masa ini, pesanan boleh dibuat melalui WhatsApp untuk respon yang lebih pantas.";
+break;
+
+default:
+text="Information unavailable.";
+}
 
 info.innerHTML=text;
-
 btn.insertAdjacentElement("afterend",info);
 }
 
+/* REMOVE INFO BUBBLE ONLY */
 function removeInfos(){
-document.querySelectorAll(".rara-bubble").forEach((el,i)=>{
-if(i!==0) el.remove();
-});
+document.querySelectorAll(".rara-bubble.info").forEach(el=>el.remove());
 document.querySelectorAll(".activeInfo").forEach(b=>b.classList.remove("activeInfo"));
 }
 
@@ -604,3 +659,4 @@ Back
 
 </body>
 </html>
+
